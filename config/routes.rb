@@ -4,6 +4,6 @@ Rails.application.routes.draw do
 
   get :form, to: 'root#form'
 
-  # Defines the root path route ("/")
   root 'root#index'
+
 end
