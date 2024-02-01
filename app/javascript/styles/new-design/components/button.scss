@@ -1,3 +1,60 @@
+// Is required to use these styles, or are you migrating from those and I can style it by myself?
+// I didn't find the button styles, that are in the figma file, so I will add it here.
+
+.button {
+  display: inline-block;
+  border-radius: rem(4px);
+  padding: rem(8px) rem(12px);
+  font-weight: bold;
+  text-decoration: none;
+
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}
+
+.button--orange {
+  color: $white;
+  background: $orange;
+  transition: all 0.2s ease-in-out;
+
+  &:hover,
+  &:focus {
+    background: $orange-dark;
+    color: $white;
+  }
+}
+
+.button--blue-outline {
+  border: solid rem(1px) $blue;
+  transition: all 0.2s ease-in-out;
+
+  &:hover,
+  &:focus {
+    background: $blue;
+    color: $white;
+  }
+}
+
+.button--md {
+  font-size: rem(16px);
+}
+
+.button--lg {
+  font-size: rem(16px);
+
+  @media only screen and (min-width: $breakpoint-lg) {
+    font-size: rem(22px);
+
+    & img {
+      width: rem(33px);
+      height: rem(33px);
+    }
+  }
+}
+
+///////////////
 .el-button {
   text-decoration: none;
   font-weight: 400;
@@ -51,7 +108,7 @@
   font-size: rem(18px);
   font-weight: 700;
 
-  @include media('>md') {
+  @include media(">md") {
     padding: rem(24px) rem(54px);
     font-size: rem(22px);
   }
@@ -68,21 +125,21 @@
 
   @include media-breakpoint-down(xs) {
     min-width: 150px;
-    padding-top: .8rem;
-    padding-bottom: .8rem;
-    padding-left: .53rem;
-    padding-right: .53rem;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
+    padding-left: 0.53rem;
+    padding-right: 0.53rem;
     font-size: 1rem;
   }
 }
 
 .el-button--small,
 .btn-mini {
-  padding-top: .5rem;
-  padding-bottom: .5rem;
-  padding-right: .66rem;
-  padding-left: .66rem;
-  font-size: .8rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-right: 0.66rem;
+  padding-left: 0.66rem;
+  font-size: 0.8rem;
   font-weight: 400;
 }
 
@@ -98,7 +155,6 @@
     }
   }
 }
-
 
 .el-button-wrapper {
   margin-top: 20px;

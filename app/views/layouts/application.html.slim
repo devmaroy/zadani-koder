@@ -9,8 +9,9 @@ html
     = stylesheet_packs_with_chunks_tag 'frontend'
 
   body
-    = render 'navigation'
-    = yield
-    = render 'footer'
+    div id="hp"
+    / = render 'navigation'
+    / = yield
+    / = render 'footer'
 
   = javascript_packs_with_chunks_tag 'frontend'

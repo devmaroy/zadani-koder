@@ -1,5 +1,6 @@
 $white: #ffffff;
 $blue: #2980b9;
+$blue-off: #487285;
 $blue-dark: #263944;
 $blue-light: #c9dfed;
 $blue-sky: #f4f9fb;
@@ -26,10 +27,14 @@ $info: $blue;
 
 $font-size-default: 15px;
 $font-size-base: 1rem;
-$font-size-sm: .93333333rem;
+$font-size-sm: 0.93333333rem;
 
-$font-family: 'Inter', sans-serif;
-$font-primary-set: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-family: "Inter", sans-serif;
+$font-primary-set: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
-$container-width: 74rem;
+$container-width: 88rem;
 $gutter-width: 2.66666667rem;
+
+$breakpoint-md: 40em;
+$breakpoint-lg: 64em;
+$breakpoint-xl: 87.5em;
