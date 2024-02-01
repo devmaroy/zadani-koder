@@ -5,5 +5,4 @@ Rails.application.routes.draw do
   get :form, to: 'root#form'
 
   root 'root#index'
-
 end
