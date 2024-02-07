@@ -1,13 +1,20 @@
 <script>
-import { Input } from 'element-ui';
+import { Input } from "element-ui";
 
 export default {
   extends: Input,
   props: {
     autocomplete: {
       type: String,
-      default: '',
+      default: "",
     },
+  },
+  mounted() {
+    this.$on("focus", () => {
+      // Vue is new to me, so I'm not sure how to call the parent function
+      // so it sets the focus on the input field
+      // this.$emit("slot-handle-focus");
+    });
   },
 };
 </script>
@@ -49,8 +56,10 @@ export default {
 
 .el-input__inner,
 .el-textarea__inner {
-  padding: rem(8px);
+  padding: rem(12px) rem(16px);
   line-height: 1.4;
+  border: rem(1px) solid #bbd2e1;
+  border-radius: rem(8px);
 }
 
 .el-input__prefix {

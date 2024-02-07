@@ -8,18 +8,22 @@
       spacing ? 'el-form-item--' + spacing : '',
       radio ? 'el-form-item--radio' : '',
       offset ? 'el-form-item--offset' + offsetSize : '',
-      vertical ? 'el-form-item--vertical': '',
+      vertical ? 'el-form-item--vertical' : '',
       errorStyled ? 'el-form-item--error-styled' : '',
     ]"
     :error="errorMessage"
   >
     <template v-if="floatingLabel">
       <div :class="['el-input', focused || hasInputValue ? 'is-focused' : '']">
-        <slot
-          :slot-handle-focus="handleFocus"
-          :slot-handle-blur="handleBlur"
-        />
-        <span :class="['el-input__label', focused || hasInputValue ? 'is-floating' : '']">{{ label }}</span>
+        <slot :slot-handle-focus="handleFocus" :slot-handle-blur="handleBlur" />
+
+        <span
+          :class="[
+            'el-input__label',
+            focused || hasInputValue ? 'is-floating' : '',
+          ]"
+          >{{ label }}</span
+        >
       </div>
     </template>
     <template v-else-if="!floatingLabel">
@@ -35,17 +39,9 @@
       data-test="form_input_error_message"
     >
       <template v-if="errorMessage">
-        <Alert
-          v-if="errorAlert"
-          type="error"
-          show-icon
-          :closable="false"
-        >
+        <Alert v-if="errorAlert" type="error" show-icon :closable="false">
           <template slot="title">
-            <span
-              v-html="errorMessage"
-              @click="errorOnClick"
-            />
+            <span v-html="errorMessage" @click="errorOnClick" />
           </template>
         </Alert>
         <span v-else>
@@ -53,25 +49,14 @@
         </span>
       </template>
       <template v-else-if="errorStyled">
-        <InputHelp
-          v-if="errorStyled"
-          type="box"
-          state="error"
-        >
+        <InputHelp v-if="errorStyled" type="box" state="error">
           {{ $t(`errors.${slotProps.error}`) }}
         </InputHelp>
       </template>
       <template v-else-if="errorAlert">
-        <Alert
-          v-if="errorAlert"
-          type="error"
-          show-icon
-          :closable="false"
-        >
+        <Alert v-if="errorAlert" type="error" show-icon :closable="false">
           <template slot="title">
-            <span
-              v-html="$t(`errors.${slotProps.error}`)"
-            />
+            <span v-html="$t(`errors.${slotProps.error}`)" />
           </template>
         </Alert>
       </template>
@@ -89,7 +74,7 @@
 </template>
 
 <script>
-import { FormItem } from 'element-ui';
+import { FormItem } from "element-ui";
 
 export default {
   components: {
@@ -128,7 +113,6 @@ export default {
       type: Boolean,
       default: false,
     },
-
   },
   data() {
     return {
@@ -138,7 +122,7 @@ export default {
   computed: {
     offsetSize() {
       if (this.offset === true) {
-        return '';
+        return "";
       }
       return `--${this.offset}`;
     },
@@ -160,9 +144,16 @@ export default {
 }
 
 .el-form-item {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: rem(20px);
+
+  margin-bottom: rem(24px);
+
+  @media screen and (min-width: $breakpoint-lg) {
+    margin-bottom: rem(40px);
+  }
+
   &::before,
   &::after {
     display: none;
@@ -199,15 +190,6 @@ export default {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-  }
-
-  .el-input {
-    max-width: rem(175px);
-  }
-
-  .el-input,
-  .el-button {
-    margin-right: rem(15px);
   }
 
   .el-form-item__help {
@@ -388,13 +370,8 @@ export default {
   }
 
   & + .el-form-item__content {
-    max-width: 66%;
-    flex-basis: 66%;
-
-    @include res(xs-only, $--breakpoints-spec) {
-      max-width: 100%;
-      flex-basis: 100%;
-    }
+    max-width: 100%;
+    flex-basis: 100%;
   }
 }
 
@@ -421,8 +398,8 @@ export default {
 }
 
 .input-no-arrows {
-  input[type='number']::-webkit-inner-spin-button,
-  input[type='number']::-webkit-outer-spin-button {
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
@@ -436,7 +413,7 @@ export default {
   .el-input__inner {
     font-weight: 700;
     border-radius: 8px;
-    padding: 1.4em .8rem;
+    padding: 1.4em 0.8rem;
   }
 
   .el-form-item__label {
@@ -445,7 +422,7 @@ export default {
     top: -12px;
     left: 8px;
     background: #ffffff;
-    padding: 0 .2rem;
+    padding: 0 0.2rem;
     z-index: 1;
   }
 
@@ -459,11 +436,11 @@ export default {
   position: absolute;
   transform: scale(1);
   left: 9px;
-  bottom: 12px;
-  transition: transform .3s, bottom .3s;
-  color: $blue-light;
+  bottom: 20px;
+  transition: transform 0.3s, bottom 0.3s;
+  color: $--color-text-regular;
   background: #ffffff;
-  padding: 0 .3rem;
+  padding: 0 0.3rem;
   pointer-events: none;
   max-width: 95%;
   white-space: nowrap;
@@ -473,7 +450,11 @@ export default {
 
 .el-input.is-focused .el-input__label {
   bottom: 100%;
-  transform: scale(.92) translate3d(-9px, 8px, 0);
+  transform: scale(0.92) translate3d(-9px, 8px, 0);
   color: $--color-text-regular;
+}
+
+.el-form-item {
+  flex: 1;
 }
 </style>

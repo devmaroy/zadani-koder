@@ -1,11 +1,11 @@
 <script>
-import { Select } from 'element-ui';
+import { Select } from "element-ui";
 
 export default {
   extends: Select,
   computed: {
     iconClass() {
-      return this.visible ? 'arrow-up is-reverse' : 'arrow-up';
+      return this.visible ? "arrow-up is-reverse" : "arrow-up";
     },
   },
 };
@@ -32,16 +32,17 @@ export default {
 
   .el-input__inner {
     padding-right: rem(40px);
-    border-color: $--color-primary;
+    border: rem(1px) solid #bbd2e1;
+    border-radius: rem(8px);
   }
 
   .el-input__suffix {
     width: rem(32px);
     right: 0;
-    background-color: $--color-primary;
     border-radius: 0 4px 4px 0;
     .el-input__icon {
       font-weight: 700;
+      color: $--color-blue-new;
     }
   }
 }

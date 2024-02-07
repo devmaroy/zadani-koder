@@ -1,12 +1,12 @@
 <script>
-import { Input } from 'element-ui';
+import { Input } from "element-ui";
 
 export default {
   extends: Input,
   props: {
     autocomplete: {
       type: String,
-      default: '',
+      default: "",
     },
   },
 };
@@ -25,7 +25,7 @@ export default {
 }
 
 .el-input__inner {
-  height: rem(36);
+  height: rem(56px);
 }
 
 .el-input--large {
@@ -44,7 +44,7 @@ export default {
 
 .el-input--prefix {
   .el-input__inner {
-    padding-left: rem(40px + 8px);
+    padding-left: rem(16px);
     &:focus {
       border-color: $--input-border-color;
     }
@@ -53,21 +53,24 @@ export default {
 
 .el-input__inner,
 .el-textarea__inner {
-  padding: rem(8px);
-  line-height: 1.4;
+  padding: rem(12px) rem(16px);
+  font-size: rem(16px);
+  line-height: calc(rem(16px) * 1.5);
+  font-weight: bold;
 }
 
 .el-input__prefix {
-  left: 0;
-  width: rem(32px);
+  left: auto;
+  right: 0;
+  width: rem(40px);
   height: 100%;
-  border-right: $--input-border;
-  font-size: rem(16px);
+  font-size: rem(24px);
   pointer-events: none;
   .el-input__icon {
     width: 100%;
     pointer-events: none;
     cursor: default;
+    color: $--color-blue-new;
   }
 }
 </style>
